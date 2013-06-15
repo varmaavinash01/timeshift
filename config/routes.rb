@@ -1,4 +1,18 @@
 Timeshift::Application.routes.draw do
+ 
+  
+  match '/auth/:provider/callback' => 'auth#callback'
+    
+  get "auth/index"
+
+  get "auth/home"
+
+  get "auth/callback"
+
+  get "auth/logout"
+
+  get "auth/login"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

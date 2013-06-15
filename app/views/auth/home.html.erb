@@ -1,0 +1,92 @@
+<style>
+  .content_area {
+    padding-left: 18px;
+    padding-right: 25px;
+    width: 511px;
+    margin-left: 20%;
+    }
+
+.feed-box {
+    margin-left: -18px;
+    padding-left: 18px;
+    border-bottom-color: #E9E9E9;
+    border-bottom-style: solid;
+    border-top-color: #E9E9E9;
+    border-top-style: solid;
+    border-bottom-width: 0;
+    border-top-width: 1px;
+    padding-bottom: 0;
+    padding-right: 0;
+    padding-top: 0;
+    position: relative;
+    clear:both;
+    height:100%;
+}
+
+.actor-name {
+    margin-bottom: 0;
+    padding-bottom: 4px;
+    font-weight: bold;
+    display: inline;
+    position: absolute;
+    margin-left: 15px;
+    margin-top: -2px;
+}
+.feed-content {
+  padding: 10px;
+}
+
+.message {
+    position: relative;
+    width: 500px;
+    margin-left: 65px;
+    margin-top: -28px;
+}
+
+.stats {
+background-color: #EDEFF4;
+    margin-top: 5px;
+    padding-bottom: 4px;
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 4px;
+    margin-left: 65px;
+    width: 500px;
+    }
+</style>
+<h2 style="margin-left: 20%;">Your newsfeed of <%= @start_date %> !</h2><br>
+
+<div class="content_area">
+  <% @display_objects.each do |obj| %>
+      <div class="feed-box">
+        <div class="feed-content">
+          <a height=50 width=50 target="_blank" href="http://www.facebook.com/<%= obj["id"]%>">
+            <img src="http://graph.facebook.com/<%= obj["id"] %>/picture"/>
+          </a>
+          <div class="actor-name">
+            <a style="color: #3b5998;" href="http://www.facebook.com/<%= obj["id"]%>" target="_blank">
+              <%= obj["name"] %>
+            </a>
+          </div>
+          <div class="message">
+            <%= obj["message"] %>
+            <% if obj["link"] %>
+              <% if obj["action_type"] == "added_photos"%>
+                <br><img src="<%= obj['picture']%>">
+              <% else %> 
+                <br><b><%= obj["action_type"] %></b> <br><%= obj["link"] %>
+              <% end %>
+            <% end %>
+          </div>
+          <% if obj["likesCount"] and obj["commentsCount"] %>
+            <div class="stats">
+              <a style="color: #3b5998;" href="#"><%= obj["likesCount"]%></a> likes <% if obj["commentsCount"] %> and <a style="color: #3b5998;" href="#"><%= obj["commentsCount"] %></a> comments.<% end %>
+            </div>
+          <% end %> 
+        </div>
+      </div>
+  <% end %>
+</div>
+FB Query : <%= @query %> <br><br>
+<%= @feeds.to_json if @feedss %>
+<%= @display_objects.to_json %>

@@ -7,6 +7,10 @@ gem 'rails', '3.2.3'
 
 gem 'sqlite3'
 
+gem "omniauth", ">= 1.1.3"
+gem 'omniauth-facebook'
+gem "koala"
+gem 'redis-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,0 +1,51 @@
+<style>
+.fb-button {
+    background-color: #5975b1;
+    font-size: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-shadow:   1px 1px 10px #CCCCCC;
+    color: #FFFFFF;
+    cursor: pointer;
+    #margin-left: 10px;
+    outline: medium none;
+    text-decoration: none;
+    border: none;
+    width: auto;
+    margin: 30px 30px 30px 30px;
+    #position: absolute;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.fb-button:hover {
+    text-decoration: none;
+    color: #FFFFFF;
+    }
+.contents {
+  margin-top: 30%;
+  text-align: center;
+}
+
+.dp{
+  height:5em;
+  width: 40%;
+  text-align: center;
+  margin: 30px;
+  padding: 20px;
+  font-size:38px;
+}
+</style>
+<!-- TODO remove following code if not needed 
+  <link href="http://vitalets.github.io/bootstrap-datepicker/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css">
+  <script src="http://vitalets.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+-->
+<div class="contents">
+   <form action="/auth/login/">
+     <input id="dp1" name="dp1" class="dp" type="text" value="2012-02-01" autocomplete="off" autofocus="autofocus"><br>
+      'YYYY-MM-DD' format please. <br>
+     <input type="submit" class="fb-button" value="Login with Facebook">
+   </form>  
+</div>
